@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Alkademi.Bootcamp.HelloWebApp.Models.Video>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+    @foreach (var item in Model)
+    {
+        <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+            <iframe width="400" height="200" src="@item.LinkVideo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <a href = "/home/detailvid/@item.Title">
+                <h5>@item.Title</h5></a>
+                <h7><img src="@item.User.ProfileImages" height="30"></img>@item.User.Username</h7> 
+                <p class="card-text">@item.Desc</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+            </div>
+        </div>
+        </div>
+        
+        
+        
+        
+
+        
+        
+         
+    }
