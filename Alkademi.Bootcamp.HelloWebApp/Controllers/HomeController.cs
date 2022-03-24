@@ -16,12 +16,12 @@ public class HomeController : Controller
     {
         _logger = logger;
         _listvideo = new List<Video>(){
-            new Video(1,"Real Madrid 0-4 Barcelona | LaLiga 21/22 Match Highlights","Real Madrid 0-4 Barcelona, Senin, 21 Maret 2022 Performa impresif Barca di bawah XAVI terus berlanjut. Kali ini BARCELONA hancurkan REAL MADRID 4-0 dalam laga bertajuk ElClásico di Santiago...")
+            new Video(1,"Real Madrid 0-4 Barcelona LaLiga 21 22 Match Highlights","Real Madrid 0-4 Barcelona, Senin, 21 Maret 2022 Performa impresif Barca di bawah XAVI terus berlanjut. Kali ini BARCELONA hancurkan REAL MADRID 4-0 dalam laga bertajuk ElClásico di Santiago...")
             {
                 LinkVideo = "https://www.youtube.com/embed/qkQDvE9AhKk",
                 User = new User(1, "beIN Sports Indonesia","https://yt3.ggpht.com/ytc/AKedOLQdDxlp_VQnfiCT5kcR13h8KyOjG2_tRvm3zYa58w=s48-c-k-c0x00ffffff-no-rj"),
             },
-            new Video(2,"#MotoGP Race Build up at the #IndonesianGP 🇮🇩","Unpredictable weather ✅ Reduced race times ✅ The stage is set for an almighty afternoon at the #IndonesianGP 🇮🇩 Join us as we build up to the first #MotoGP race in Indonesia for...")
+            new Video(2,"MotoGP Race Build up at the IndonesianGP","Unpredictable weather ✅ Reduced race times ✅ The stage is set for an almighty afternoon at the #IndonesianGP 🇮🇩 Join us as we build up to the first #MotoGP race in Indonesia for...")
             {
                 LinkVideo = "https://www.youtube.com/embed/AbBDyWWHUOg",
                 User = new User(2, "MotoGP","https://yt3.ggpht.com/Ae6_xX9VoZWUUBqHInTaJ8vCzGHuYPZ4W-rNy1Q0SOjwEWzuNZoVgPDGASPYi7WpfNGJxOapEQ=s48-c-k-c0x00ffffff-no-rj"),
@@ -54,7 +54,7 @@ public class HomeController : Controller
     [Route("home/detailvid/{title}")]
     public IActionResult DetailVid(string title)
     {
-        //get data from list tweet by username
+ 
         var datas = _listvideo.Where(x=> x != null && x.Title != null && x.Title.Contains(title, StringComparison.OrdinalIgnoreCase)).ToList();
 
        return View(datas); 

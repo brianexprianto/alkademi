@@ -6,7 +6,7 @@
 @foreach (var item in Model)
     {
     <div class="card mb-3">
-    <iframe width="400" height="200" src="@item.LinkVideo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="800" height="350" src="@item.LinkVideo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <div class="card-body">
         <h5>@item.Title</h5>
         <h7><img src="@item.User.ProfileImages" height="30"></img>@item.User.Username</h7>

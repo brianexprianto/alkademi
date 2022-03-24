@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\alkademi\projek\Alkademi.Bootcamp.HelloWebApp
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/alkademi/projek/Alkademi.Bootcamp.HelloWebApp/Views/Home/CreateUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/alkademi/projek/Alkademi.Bootcamp.HelloWebApp/Views/Home/DetailVid.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhaWxWaWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

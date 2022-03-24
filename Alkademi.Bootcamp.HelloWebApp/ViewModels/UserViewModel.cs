@@ -1,6 +1,6 @@
 namespace Alkademi.Bootcamp.HelloWebApp.Models;
 
-public class User
+public class UserViewModel
 {
     public int Id {get;set;}
     public string Username {get;set;}
@@ -10,7 +10,7 @@ public class User
     public string AboutUser {get;set;}
 
     
-    public User(int id, string username, string password){
+    public UserViewModel(int id, string username, string password){
         if(id == 0){
             Id = new Random().Next();
         } else{
@@ -19,4 +19,5 @@ public class User
         Username = username;
         Password = password;
     }
+
 }
