@@ -10,23 +10,28 @@ namespace Alkademi.Bootcamp.HelloWebApp.Controllers
     {
         List<UserViewModel> _listUser = new List<UserViewModel>();
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private readonly IFileUserService _fileUserService;
+        public UserController(IUserService userService, IFileUserService fileUserService)
         {
             _userService = userService;
+            _fileUserService = fileUserService;
             _listUser = new List<UserViewModel>(){
             new UserViewModel(1, "brianexp","brian123"),
-            new UserViewModel(2, "brianexp","brian123"),
-            new UserViewModel(3, "brianexp","brian123"),
-            new UserViewModel(4, "brianexp","brian123"),
+            new UserViewModel(1, "brianexp","brian123"),
+            new UserViewModel(1, "brianexp","brian123"),
+            new UserViewModel(1, "brianexp","brian123"),
            
         };
+
         }
 
         
-        // GET: TweetController
-        public ActionResult Index()
+        // GET: UserController
+        public async Task<ActionResult> Index()
         {
-            return View(_userService.GetUsers());
+            var data = await _fileUserService.Read();
+            
+            return View(data);
         }
 
         // GET: TweetController/Details/5
@@ -38,13 +43,13 @@ namespace Alkademi.Bootcamp.HelloWebApp.Controllers
         // GET: TweetController/Create
         public ActionResult Create()
         {
-            return View(new UserViewModel(1, "usename ", "password"));
+            return View(new UserViewModel(1, "username ", "password"));
         }
 
         // POST: TweetController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(UserViewModel collection)
+        public async Task<ActionResult> Create(UserViewModel collection)
         {
             if(!ModelState.IsValid)
             {
@@ -53,6 +58,7 @@ namespace Alkademi.Bootcamp.HelloWebApp.Controllers
 
             try
             {
+                await _fileUserService.Write(collection);
                 return RedirectToAction(nameof(Index));
             }
             catch

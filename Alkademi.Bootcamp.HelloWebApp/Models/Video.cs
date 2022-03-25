@@ -7,6 +7,7 @@ public class Video
     public string Desc {get;set;}
     public string TotalLike {get;set;}
     public string LinkVideo {get;set;}
+    public string LinkImage{get;set;}
 
     public User User{get;set;}
 

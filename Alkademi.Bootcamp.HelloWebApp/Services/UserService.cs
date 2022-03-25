@@ -9,10 +9,10 @@ namespace Alkademi.Bootcamp.HelloWebApp.Services
         {
             _users = new List<User>
             {
-                new User(1, "Title", "Bootcamp alkademi"),
-                new User(2, "Title 1", "Bootcamp alkademi"),
-                new User(3, "Title 2", "Bootcamp alkademi"),
-                new User(4, "Title 2", "Bootcamp alkademi"),
+                new User(1, "Brina", "brian"),
+                new User(2, "Brian 1", "alkademi"),
+                new User(3, "Brian 2", "exprianto"),
+                new User(4, "Brian 2", "alkademi"),
                 
             };
         }

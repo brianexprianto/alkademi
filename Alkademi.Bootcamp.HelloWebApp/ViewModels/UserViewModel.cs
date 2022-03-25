@@ -1,3 +1,6 @@
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
 namespace Alkademi.Bootcamp.HelloWebApp.Models;
 
 public class UserViewModel
@@ -9,6 +12,12 @@ public class UserViewModel
     public int Subscribers {get; set;}
     public string AboutUser {get;set;}
 
+    public User User{get;set;}
+
+    public UserViewModel(){
+        
+    }
+
     
     public UserViewModel(int id, string username, string password){
         if(id == 0){
@@ -18,6 +27,10 @@ public class UserViewModel
         }
         Username = username;
         Password = password;
+    }
+
+    public void PostBy(User user){
+        User = user;
     }
 
 }

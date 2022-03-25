@@ -1,7 +1,7 @@
 @model Alkademi.Bootcamp.HelloWebApp.Models.UserViewModel
 
 @{
-    ViewData["User"] = "Create";
+    ViewData["Title"] = "Create";
 }
 
 <h1>Create</h1>
@@ -27,6 +27,10 @@
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            </form>
             
 
 <div>
