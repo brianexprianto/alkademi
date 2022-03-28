@@ -1,0 +1,58 @@
+@model IEnumerable<Ecommerce.WebApp.Datas.Entities.KategoriProduk>
+
+@{
+    ViewData["Title"] = "IndexKategori";
+}
+
+<h1>Data Kategori</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<p class="text-danger">@ViewBag.ErrorMessage</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdKategori)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NamaKategori)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deskripsi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Icon)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdKategori)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaKategori)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deskripsi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Icon)
+            </td>
+            
+            <td>
+                <center>Action</center>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdKategori }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IdKategori }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.IdKategori })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
