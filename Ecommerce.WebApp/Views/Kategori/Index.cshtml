@@ -27,7 +27,7 @@
                 @Html.DisplayNameFor(model => model.Icon)
             </th>
             
-            <th></th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -47,7 +47,7 @@
             </td>
             
             <td>
-                <center>Action</center>
+                
                 @Html.ActionLink("Edit", "Edit", new { id = item.IdKategori }) |
                 @Html.ActionLink("Details", "Details", new { id = item.IdKategori }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.IdKategori })

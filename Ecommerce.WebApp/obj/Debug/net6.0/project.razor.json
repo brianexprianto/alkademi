@@ -16338,6 +16338,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Kategori\\Details.cshtml",
+      "TargetPath": "Views\\Kategori\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"

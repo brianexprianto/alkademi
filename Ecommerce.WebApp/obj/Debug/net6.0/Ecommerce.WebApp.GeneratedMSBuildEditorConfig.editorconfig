@@ -8,49 +8,53 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Ecommerce.WebApp
 build_property.RootNamespace = Ecommerce.WebApp
-build_property.ProjectDir = d:\alkademi\projek\Ecommerce.WebApp\
+build_property.ProjectDir = D:\alkademi\projek\Ecommerce.WebApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = d:\alkademi\projek\Ecommerce.WebApp
+build_property.MSBuildProjectDirectory = D:\alkademi\projek\Ecommerce.WebApp
 build_property._RazorSourceGeneratorDebug = 
 
-[d:/alkademi/projek/Ecommerce.WebApp/Views/Home/Index.cshtml]
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/alkademi/projek/Ecommerce.WebApp/Views/Home/Privacy.cshtml]
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/alkademi/projek/Ecommerce.WebApp/Views/Kategori/Create.cshtml]
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Kategori/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/alkademi/projek/Ecommerce.WebApp/Views/Kategori/Edit.cshtml]
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Kategori/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Kategori/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/alkademi/projek/Ecommerce.WebApp/Views/Kategori/Index.cshtml]
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Kategori/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/alkademi/projek/Ecommerce.WebApp/Views/Shared/Error.cshtml]
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/alkademi/projek/Ecommerce.WebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/alkademi/projek/Ecommerce.WebApp/Views/_ViewImports.cshtml]
+[D:/alkademi/projek/Ecommerce.WebApp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/alkademi/projek/Ecommerce.WebApp/Views/_ViewStart.cshtml]
+[D:/alkademi/projek/Ecommerce.WebApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/alkademi/projek/Ecommerce.WebApp/Views/Shared/_Layout.cshtml]
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-fphfsx0odd
