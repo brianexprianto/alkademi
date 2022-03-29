@@ -1,0 +1,65 @@
+@model IEnumerable<Ecommerce.WebApp.ViewModels.KategoriViewModel>
+
+@{
+    ViewData["Title"] = "IndexKategori";
+    int i = 0;
+}
+
+<h1>Data Kategori</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<p class="text-danger">@ViewBag.ErrorMessage</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                No
+            </th>
+            <th>
+                Nama
+            </th>
+            <th>
+                Deskripsi
+            </th>
+            <th>
+                Icon
+            </th>
+                      
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@if (Model != null && Model.Any())
+{
+
+foreach (var item in Model) {
+    i++;
+        <tr>
+            <td>
+                @i
+            </td>
+            <td>
+                @item.NamaKategori
+            </td>
+            <td>
+                @item.Deskripsi
+            </td>
+            <td>
+                @item.Icon
+            </td>
+            <td>
+                <a href="kategoris/details/@item.IdKategori">Detail</a>
+                <a href="kategoris/delete/@item.IdKategori">Delete</a>
+            </td>
+        </tr>
+        }
+    }else{
+        <tr>
+            <td colspan="4">Data kosong</td>
+        </tr>
+    }
+    </tbody>
+</table>

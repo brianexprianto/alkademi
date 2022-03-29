@@ -1,0 +1,77 @@
+@model IEnumerable<Ecommerce.WebApp.ViewModels.ProdukViewModel>
+
+@{
+    ViewData["Title"] = "Index Produk";
+    int i = 0;
+}
+
+<h1>Data Produk</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<p class="text-danger">@ViewBag.ErrorMessage</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                No
+            </th>
+            <th>
+                Nama Produk
+            </th>
+            <th>
+                Deskripsi
+            </th>
+            <th>
+                Harga
+            </th>
+            <th>
+                Stok
+            </th>
+            <th>
+                Gambar
+            </th>
+                      
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@if (Model != null && Model.Any())
+{
+
+foreach (var item in Model) {
+    i++;
+        <tr>
+            <td>
+                @i
+            </td>
+            <td>
+                @item.NamaProduk
+            </td>
+            <td>
+                @item.Deskripsi
+            </td>
+            <td>
+                @item.Harga
+            </td>
+            <td>
+                @item.Stok
+            </td>
+            <td>
+                @item.Gambar
+            </td>
+            <td>
+                <a href="kategoris/detail/@item.IdKategori">Detail</a>
+                <a href="kategoris/delete/@item.IdKategori">Delete</a>
+            </td>
+        </tr>
+        }
+    }else{
+        <tr>
+            <td colspan="4">Data kosong</td>
+        </tr>
+    }
+    </tbody>
+</table>

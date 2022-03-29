@@ -23,28 +23,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/alkademi/projek/Ecommerce.WebApp/Views/Kategoris/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlzXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/alkademi/projek/Ecommerce.WebApp/Views/Kategoris/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlzXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/alkademi/projek/Ecommerce.WebApp/Views/Kategoris/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/alkademi/projek/Ecommerce.WebApp/Views/Kategoris/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlzXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/alkademi/projek/Ecommerce.WebApp/Views/Kategori/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/alkademi/projek/Ecommerce.WebApp/Views/Kategori/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/alkademi/projek/Ecommerce.WebApp/Views/Kategori/Details.cshtml]
@@ -57,14 +37,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/alkademi/projek/Ecommerce.WebApp/Views/Kategori/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/alkademi/projek/Ecommerce.WebApp/Views/Produk/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVrXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/alkademi/projek/Ecommerce.WebApp/Views/Produk/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVrXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/alkademi/projek/Ecommerce.WebApp/Views/Shared/Error.cshtml]

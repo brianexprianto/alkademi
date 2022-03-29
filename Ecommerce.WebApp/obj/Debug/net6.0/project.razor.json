@@ -16303,6 +16303,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Kategori\\Delete.cshtml",
+      "TargetPath": "Views\\Kategori\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Kategori\\Create.cshtml",
       "TargetPath": "Views\\Kategori\\Create.cshtml",
       "FileKind": "mvc"

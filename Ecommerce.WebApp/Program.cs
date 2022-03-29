@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Ecommerce.WebApp.Datas;
+using Ecommerce.WebApp.Services;
+using Ecommerce.WebApp.Interfaces;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,10 @@ builder.Services.AddDbContext<EcommerceDbContext>(
                 .EnableSensitiveDataLogging()
                 .EnableDetailedErrors()
         );
+
+
+builder.Services.AddScoped<IKategoriServices, KategoriServices>();
+builder.Services.AddScoped<IProdukServices, ProdukServices>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

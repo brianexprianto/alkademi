@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "Ecommerce.WebApp-build",
-            "program": "${workspaceFolder}/bin/Debug/net6.0/Ecommerce.WebApp/Ecommerce.WebApp.dll",
+            "program": "${workspaceFolder}/bin/Debug/net6.0/Ecommerce.WebApp.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,

@@ -1,154 +1,119 @@
-#nullable disable
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Ecommerce.WebApp.Models;
+using Ecommerce.WebApp.ViewModels;
 using Microsoft.EntityFrameworkCore;
-using Ecommerce.WebApp.Datas;
-using Ecommerce.WebApp.Datas.Entities;
+using Ecommerce.WebApp.Interfaces;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Ecommerce.WebApp.Controllers
+namespace Ecommerce.WebApp.Controllers;
+
+public class ProdukController : Controller
 {
-    public class ProdukController : Controller
+    private readonly IProdukServices _produkServices;
+    private readonly IKategoriServices _kategoriServices;
+    private readonly ILogger<ProdukController> _logger;
+
+    public ProdukController(ILogger<ProdukController> logger, IProdukServices produkServices, IKategoriServices kategoriServices)
     {
-        private readonly EcommerceDbContext _context;
+        _logger = logger;
+        _produkServices = produkServices;
+        _kategoriServices = kategoriServices;
+    }
 
-        public ProdukController(EcommerceDbContext context)
+    public async Task<IActionResult> Index()
+    {
+        var dbResult = await _produkServices.GetAll();
+
+        var viewModels = new List<ProdukViewModel>();
+
+        for (int i = 0; i < dbResult.Count; i++)
         {
-            _context = context;
+            viewModels.Add(new ProdukViewModel{
+                IdProduk = dbResult[i].IdProduk,
+                NamaProduk = dbResult[i].NamaProduk,
+                Deskripsi = dbResult[i].Deskripsi,
+                Harga = dbResult[i].Harga,
+                Stok = dbResult[i].Stok,
+                Gambar = dbResult[i].Gambar,
+            });
         }
 
-        // GET: Kategoris
-        public async Task<IActionResult> Index()
+        return View(viewModels);
+    }
+
+    private async Task SetKategoriDataSource()
+    {
+        var kategoriViewModels = await _kategoriServices.GetAll();
+
+        ViewBag.KategoriDataSource = kategoriViewModels.Select(x => new SelectListItem
         {
-            return View(await _context.KategoriProduks.ToListAsync());
+            Value = x.IdKategori.ToString(),
+            Text = x.NamaKategori,
+            Selected = false
+        }).ToList();
+    }
+
+    public async Task<IActionResult> Create() {
+        await SetKategoriDataSource();
+        return View(new ProdukViewModel());
+    }
+
+ [HttpPost]
+    public async Task<IActionResult> Create(ProdukViewModel request) {
+        if(!ModelState.IsValid){
+            await SetKategoriDataSource();
+            return View(request);
+        }
+        try{
+
+            var product = request.ConvertToDbModel();
+
+            //Insert to ProdukKategori table
+            product.ProdukKategoris.Add(new Datas.Entities.ProdukKategori 
+            {
+                IdKategori = request.IdKategori,
+                IdProduk = product.IdProduk
+            });
+
+            await _produkServices.Add(product);
+
+            return Redirect(nameof(Index));
+        }catch(InvalidOperationException ex){
+            ViewBag.ErrorMessage = ex.Message;
+        }
+        catch(Exception) {
+            throw;
         }
 
-        // GET: Kategoris/Details/5
-        public async Task<IActionResult> Details(int? id)
+
+        await SetKategoriDataSource();
+        return View(request);
+    }
+
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var produk = await _context.Produks
-                .FirstOrDefaultAsync(m => m.IdProduk == id);
-            if (produk == null)
-            {
-                return NotFound();
-            }
-
-            return View(produk);
-        }
-
-        // GET: Kategoris/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Kategoris/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdProduk,NamaProduk,Deskripsi,Harga,Stok,Gambar")] Produk produk)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(produk);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(produk);
-        }
-
-        // GET: Kategoris/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var produk = await _context.Produks.FindAsync(id);
-            if (produk == null)
-            {
-                return NotFound();
-            }
-            return View(produk);
-        }
-
-        // POST: Kategoris/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdProduk,NamaProduk,Deskripsi,Harga,Stok,Gambar")] Produk produk)
-        {
-            if (id != produk.IdProduk)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(produk);
-                    await _context.SaveChangesAsync();
+            try{
+                var delete = await _produkServices.Delete(id);
+                if (delete){
+                    return RedirectToAction(nameof(Index));
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProdukExists(produk.IdProduk))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
             }
-            return View(produk);
-        }
-
-        // GET: Kategoris/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
+            catch (Exception){
+            throw;
             }
-
-            var produk = await _context.Produks
-                .FirstOrDefaultAsync(m => m.IdProduk == id);
-            if (produk == null)
-            {
-                return NotFound();
-            }
-
-            return View(produk);
+            return View(new ProdukViewModel());
         }
 
-        // POST: Kategoris/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var produk = await _context.Produks.FindAsync(id);
-            _context.Produks.Remove(produk);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
 
-        private bool ProdukExists(int id)
-        {
-            return _context.Produks.Any(e => e.IdProduk == id);
-        }
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
