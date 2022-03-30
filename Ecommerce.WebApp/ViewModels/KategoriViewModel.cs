@@ -11,11 +11,21 @@ namespace Ecommerce.WebApp.ViewModels
             Deskripsi = string.Empty;
             Icon = string.Empty;
         }
+
+        public KategoriViewModel(KategoriProduk item){
+            IdKategori = item.IdKategori;
+            NamaKategori = item.NamaKategori;
+            Deskripsi = item.Deskripsi;
+            Icon = item.Icon;
+        }
         public int IdKategori { get; set; }
         [Required]
         public string NamaKategori { get; set; }
         public string Deskripsi { get; set; }
         public string Icon { get; set; }
+        
+    
+        public IFormFile? IconFile { get; set; }
 
         public KategoriProduk ConvertToDbModel(){
             return new KategoriProduk {
@@ -25,5 +35,6 @@ namespace Ecommerce.WebApp.ViewModels
                 Icon = this.Icon,
             };
         }
+        
     }
 }

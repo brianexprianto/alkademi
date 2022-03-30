@@ -1,20 +1,17 @@
 @model Ecommerce.WebApp.ViewModels.KategoriViewModel
 
-
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Delete";
 }
-
+<hr />
 <div class="container-xxl flex-grow-1 container-p-y">
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit" method="post">
+        <p>Apakah Anda yakin akan menghapus data ini?</p>
+        <form asp-action="Delete" method="post">
             @Html.AntiForgeryToken()
-            <div class="form-group">
-                <label asp-for="IdKategori" class="control-label"></label>
-                <input disabled asp-for="IdKategori" class="form-control" />
-                <span asp-validation-for="IdKategori" class="text-danger"></span>
-            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="IdKategori" type="hidden" class="form-control" />
             <div class="form-group">
                 <label asp-for="NamaKategori" class="control-label"></label>
                 <input disabled asp-for="NamaKategori" class="form-control" />
@@ -30,10 +27,18 @@
                 <input disabled asp-for="Icon" class="form-control" />
                 <span asp-validation-for="Icon" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <input type="submit" value="Yes" class="btn btn-primary" />
+                <a asp-action="Index" value="Cancel" class="btn btn-primary">Cancel</a>
+            </div>
         </form>
     </div>
     </div>
 <div>
     <a asp-action="Index">Back to List</a>
-</div> 
 </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

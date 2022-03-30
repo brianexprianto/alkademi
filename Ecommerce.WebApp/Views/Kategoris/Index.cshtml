@@ -4,6 +4,33 @@
     ViewData["Title"] = "IndexKategori";
     int i = 0;
 }
+<div class="container-xxl flex-grow-1 container-p-y">
+     <form asp-action="Delete" method="post">
+            <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="pos_middle">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-body" style="padding: 20px 25px;">
+                                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                                <h4 class="text-center font-grey-gallery" style="font-weight: 600;">Are you sure to delete this item?</h4>
+                                <br />
+                                <div class="row">
+                                    <input type="hidden" id="itemId" name="id" />
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn btn-block green uppercase" data-backdrop="static" data-keyboard="false">Yes</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a href="#" class="btn btn-block red uppercase" data-backdrop="static" data-keyboard="false" data-dismiss="modal">Cancel</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+        </form>
 
 <h1>Data Kategori</h1>
 
@@ -48,11 +75,12 @@ foreach (var item in Model) {
                 @item.Deskripsi
             </td>
             <td>
-                @item.Icon
+                <img src="~/@item.Icon" width="50" height="50" />
             </td>
             <td>
-                <a href="kategoris/details/@item.IdKategori">Detail</a>
-                <a href="kategoris/delete/@item.IdKategori">Delete</a>
+                <a href="kategoris/details/@item.IdKategori">Detail | </a>
+                <a href="kategoris/edit/@item.IdKategori">Edit</a>
+                <button class="btn-delete" data-id="@item.IdKategori">Delete</button>
             </td>
         </tr>
         }
@@ -63,3 +91,22 @@ foreach (var item in Model) {
     }
     </tbody>
 </table>
+
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //Show modal for delete confirmation
+            $(document).on("click", ".btn-delete", function () {
+            
+                var id = $(this).data('id');
+                console.log('id kategori: ' + id);
+                //ubah value yang id = itemId yang ada di dalam class .modal-body
+                $(".modal-body #itemId").val(id);
+                //tampilkan modal/dialog
+                $("#confirmDelete").modal('show');
+            });
+        });
+    </script>
+}

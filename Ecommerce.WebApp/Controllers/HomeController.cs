@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Ecommerce.WebApp.Models;
-
+using Ecommerce.WebApp.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 

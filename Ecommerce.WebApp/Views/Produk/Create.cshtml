@@ -5,52 +5,54 @@
     ViewData["Title"] = "Create";
 }
 
-<h4>Create Produk</h4>
-<hr />
+<div class="container-xxl flex-grow-1 container-p-y">
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="IdProduk" class="control-label"></label>
-                <input asp-for="IdProduk" class="form-control" />
-                <span asp-validation-for="IdProduk" class="text-danger"></span>
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Create Product</h5>
+                <small class="text-muted float-end">Default label</small>
             </div>
-            <div class="form-group">
-                <label asp-for="NamaProduk" class="control-label"></label>
-                <input asp-for="NamaProduk" class="form-control" />
-                <span asp-validation-for="NamaProduk" class="text-danger"></span>
+            <div class="card-body">
+                <form asp-action="Create" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group mb-3">
+                        <label asp-for="NamaProduk" class="control-label"></label>
+                        <input asp-for="NamaProduk" class="form-control" />
+                        <span asp-validation-for="NamaProduk" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Deskripsi" class="control-label"></label>
+                        <input asp-for="Deskripsi" class="form-control" />
+                        <span asp-validation-for="Deskripsi" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Harga" class="control-label"></label>
+                        <input asp-for="Harga" class="form-control" />
+                        <span asp-validation-for="Harga" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="GambarFile" class="control-label"></label>
+                        <input asp-for="GambarFile" type="file" class="form-control" />
+                        <span asp-validation-for="GambarFile" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="IdKategori" class="control-label"></label>
+                        @Html.DropDownList("IdKategori",
+                        (List<SelectListItem>)ViewBag.KategoriDataSource,
+                        "",
+                        new {
+                        @multiple = "multiple",
+                        @class = "form-select"
+                        })
+                        <span asp-validation-for="IdKategori" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Deskripsi" class="control-label"></label>
-                <input asp-for="Deskripsi" class="form-control" />
-                <span asp-validation-for="Deskripsi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Harga" class="control-label"></label>
-                <input asp-for="Harga" class="form-control" />
-                <span asp-validation-for="Harga" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdKategori" class="control-label"></label>
-                @Html.DropDownList("IdKategori", (List<SelectListItem>)ViewBag.KategoriDataSource)
-                <span asp-validation-for="IdKategori" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Gambar" class="control-label"></label>
-                <input asp-for="Gambar" class="form-control" />
-                <span asp-validation-for="Gambar" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-            </form>
-            
-
-<div>
-    <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+</div>

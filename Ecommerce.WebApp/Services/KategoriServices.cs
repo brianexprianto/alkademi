@@ -23,19 +23,6 @@ public class KategoriServices : BaseDbServices, IKategoriServices
         return obj;
     }
 
-    public async Task<bool> Delete(int idKategori)
-    {
-        var kategori = await DbContext.KategoriProduks.FirstOrDefaultAsync(x=>x.IdKategori == idKategori);
-
-        if(kategori == null) {
-            throw new InvalidOperationException($"Kategori with ID {idKategori} doesn't exist");
-        }
-
-        DbContext.Remove(kategori);
-        await DbContext.SaveChangesAsync();
-
-        return true;
-    }
 
     public async Task<List<KategoriProduk>> Get(int limit, int offset, string keyword)
     {
@@ -50,7 +37,7 @@ public class KategoriServices : BaseDbServices, IKategoriServices
 
     public async Task<KategoriProduk?> Get(int idKategori)
     {
-        var result = await DbContext.KategoriProduks.FirstOrDefaultAsync();
+        var result = await DbContext.KategoriProduks.FirstOrDefaultAsync(x=>x.IdKategori == idKategori);
 
         if(result == null)
         {
@@ -69,6 +56,22 @@ public class KategoriServices : BaseDbServices, IKategoriServices
     {
         return await DbContext.KategoriProduks.ToListAsync();
     }
+    
+    public async Task<bool> Delete(int id)
+    {
+        var kategori = await DbContext.KategoriProduks.FirstOrDefaultAsync(x=>x.IdKategori == id);
+
+        if(kategori == null) {
+            throw new InvalidOperationException($"Kategori with ID {id} doesn't exist");
+        }
+
+        DbContext.ProdukKategoris.RemoveRange(DbContext.ProdukKategoris.Where(x=>x.IdKategori == id));
+        
+        DbContext.Remove(kategori);
+        await DbContext.SaveChangesAsync();
+
+        return true;
+    }
 
     public async Task<KategoriProduk> Update(KategoriProduk obj)
     {
@@ -85,6 +88,7 @@ public class KategoriServices : BaseDbServices, IKategoriServices
 
         kategori.NamaKategori = obj.NamaKategori;
         kategori.Deskripsi = obj.Deskripsi;
+        kategori.Icon = obj.Icon;
         
         DbContext.Update(kategori);
         await DbContext.SaveChangesAsync();

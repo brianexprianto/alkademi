@@ -7,15 +7,17 @@ namespace Ecommerce.WebApp.ViewModels
     {
         public ProdukViewModel()
         {
-            
+            Kategories = new List<KategoriViewModel>();
         }
         
-        public ProdukViewModel(int idProduk, string namaProduk, string deskripsi, decimal harga){
-            IdProduk = idProduk;
-            NamaProduk = namaProduk;
-            Deskripsi = deskripsi;
-            Harga = harga;
+        public ProdukViewModel(Produk item){
+            IdProduk = item.IdProduk;
+            NamaProduk = item.NamaProduk;
+            Deskripsi = item.Deskripsi;
+            Harga = item.Harga;
             Stok = 100;
+            IdKategori = Array.Empty<int>();
+            Kategories = new List<KategoriViewModel>();
         }
 
         public int IdProduk { get; set; }
@@ -25,9 +27,16 @@ namespace Ecommerce.WebApp.ViewModels
         public decimal Harga { get; set; }
         public int Stok { get; set; }
         public string? Gambar { get; set; }
+        public string GambarSrc {
+            get {
+                return (string.IsNullOrEmpty(Gambar) ? "images/default.png" : Gambar );
+            }
+        }
+        public IFormFile? GambarFile { get; set; }
 
-        public int IdKategori {get;set;}
-        public string? NamaKategori {get;set;}
+        public int[] IdKategori { get; set; }
+        public List<KategoriViewModel> Kategories { get; set; }
+        
         
         
 

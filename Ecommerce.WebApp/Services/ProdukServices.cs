@@ -67,7 +67,7 @@ public class ProdukServices : BaseDbServices, IProdukServices
 
     public async Task<Produk?> Get(int id)
     {
-        var result = await DbContext.Produks.FirstOrDefaultAsync();
+        var result = await DbContext.Produks.FirstOrDefaultAsync(x=>x.IdProduk == id);
 
         if(result == null)
         {
@@ -84,7 +84,10 @@ public class ProdukServices : BaseDbServices, IProdukServices
 
     public async Task<List<Produk>> GetAll()
     {
-        return await DbContext.Produks.ToListAsync();
+        return await DbContext.Produks
+        .Include(x=>x.ProdukKategoris)
+        .ThenInclude(x=>x.IdKategoriNavigation)
+        .ToListAsync();
     }
 
     public async Task<Produk> Update(Produk obj)
