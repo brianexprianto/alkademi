@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Ecommerce.WebApp.Datas;
@@ -19,10 +20,24 @@ builder.Services.AddDbContext<EcommerceDbContext>(
 
 
 builder.Services.AddScoped<IKategoriServices, KategoriServices>();
+builder.Services.AddScoped<IKategoriProdukServices, KategoriProdukServices>();
 builder.Services.AddScoped<IProdukServices, ProdukServices>();
+builder.Services.AddScoped<IAccountServices, AccountServices>();
+builder.Services.AddScoped<IAdminServices, AdminServices>();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(
+        options =>
+            {
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+                options.SlidingExpiration = true;
+                options.AccessDeniedPath = "/Home/Denied";
+                options.LoginPath = "/Account/Login";
+            }
+    );
 
 var app = builder.Build();
 
@@ -39,7 +54,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "default",

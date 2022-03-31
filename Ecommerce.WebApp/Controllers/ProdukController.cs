@@ -6,22 +6,30 @@ using Microsoft.EntityFrameworkCore;
 using Ecommerce.WebApp.Interfaces;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Ecommerce.WebApp.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ecommerce.WebApp.Controllers;
 
+[Authorize]
 public class ProdukController : Controller
 {
     private readonly IProdukServices _produkServices;
     private readonly IKategoriServices _kategoriServices;
+    private readonly IKategoriProdukServices _kategoriProdukServices;
     private readonly IWebHostEnvironment _iWebHost;
     private readonly ILogger<ProdukController> _logger;
 
-    public ProdukController(ILogger<ProdukController> logger, IProdukServices produkServices, IKategoriServices kategoriServices, IWebHostEnvironment iwebHost)
+    public ProdukController(ILogger<ProdukController> logger, 
+    IProdukServices produkServices, 
+    IKategoriServices kategoriServices, 
+    IWebHostEnvironment iwebHost, 
+    IKategoriProdukServices kategoriProdukServices)
     {
         _logger = logger;
         _produkServices = produkServices;
         _kategoriServices = kategoriServices;
         _iWebHost = iwebHost;
+        _kategoriProdukServices = kategoriProdukServices;
     }
 
     public async Task<IActionResult> Index()
@@ -59,6 +67,25 @@ public class ProdukController : Controller
             Value = x.IdKategori.ToString(),
             Text = x.NamaKategori,
             Selected = false
+        }).ToList();
+    }
+
+    private async Task SetKategoriDataSource(int[] kategoris)
+    {
+        if(kategoris == null)
+        {
+            await SetKategoriDataSource();
+            return;
+        }
+
+        var kategoriViewModels = await _kategoriServices.GetAll();
+
+        ViewBag.KategoriDataSource = kategoriViewModels
+        .Select(x => new SelectListItem
+        {
+            Value = x.IdKategori.ToString(),
+            Text = x.NamaKategori,
+            Selected = kategoris.FirstOrDefault(y => y == x.IdKategori) == 0 ? false : true
         }).ToList();
     }
 
@@ -125,6 +152,94 @@ public class ProdukController : Controller
         return View(request);
     }
 
+
+    [HttpGet]
+    public async Task<IActionResult> Edit(int? id) {
+
+        if(id == null)
+        {
+            return BadRequest();
+        }
+
+        var produk = await _produkServices.Get(id.Value);
+
+        if(produk == null) 
+        {
+            return NotFound();
+        }
+
+        var kategoriIds = await _kategoriProdukServices.GetKategoriIds(produk.IdProduk);
+
+        await SetKategoriDataSource(kategoriIds);
+
+        return View(new ProdukViewModel(){
+            IdProduk = produk.IdProduk,
+            NamaProduk = produk.NamaProduk,
+            Deskripsi = produk.Deskripsi,
+            Harga = produk.Harga,
+            Gambar = produk.Gambar,
+            IdKategori = kategoriIds
+        });
+    } 
+
+    [HttpPost]
+    public async Task<IActionResult> Edit(int? id, ProdukViewModel request) {
+        if(!ModelState.IsValid){
+            await SetKategoriDataSource();
+            return View(request);
+        }
+
+        if(request == null) {
+            await SetKategoriDataSource();
+            return View(request);
+        }
+
+        try{
+        
+            string fileName = string.Empty;
+            
+            if(request.GambarFile != null) 
+            {
+                fileName = $"{Guid.NewGuid()}-{request.GambarFile?.FileName}";
+
+                string filePathName = _iWebHost.WebRootPath + fileName;
+                
+                using(var streamWriter = System.IO.File.Create(filePathName)){
+                    //await streamWriter.WriteAsync(Common.StreamToBytes(request.GambarFile.OpenReadStream()));
+                    //using extension to convert stream to bytes
+                    await streamWriter.WriteAsync(request.GambarFile.OpenReadStream().ToBytes());
+                }
+            }
+
+            var product = request.ConvertToDbModel();
+            product.Gambar = $"images/{fileName}";
+
+            //Insert to ProdukKategori table
+            for (int i = 0; i < request.IdKategori.Length; i++)
+            { 
+                product.ProdukKategoris.Add(new Datas.Entities.ProdukKategori 
+                {
+                    IdKategori = request.IdKategori[i],
+                    IdProduk = product.IdProduk
+                });   
+            }
+
+            await _produkServices.Add(product);
+
+            return Redirect(nameof(Index));
+        }catch(InvalidOperationException ex){
+            ViewBag.ErrorMessage = ex.Message;
+        }
+        catch(Exception) {
+            throw;
+        }
+
+
+        await SetKategoriDataSource();
+        return View(request);
+    }
+
+
         public async Task<IActionResult> Delete(int id)
         {
             try{
@@ -139,46 +254,7 @@ public class ProdukController : Controller
             return View(new ProdukViewModel());
         }
 
-    public async Task<IActionResult> Edit(int? id)
-    {
-        if (id == null)
-        {
-        return NotFound();
-        }
-        var result = await _produkServices.Get(id.Value);
-        if (result == null){
-            return NotFound();
-        }
-        return View(new ProdukViewModel(result));
-    }
     
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, ProdukViewModel request)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                return View(request);
-            }
-
-            try{
-                await _produkServices.Update(request.ConvertToDbModel());
-                return RedirectToAction(nameof(Index));  
-            }
-            catch(InvalidOperationException ex){
-                ViewBag.ErrorMessage = ex.Message;
-            }
-            catch(Exception) {
-                throw;
-            }   
-                return View(request);
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int? id, ProdukViewModel request)

@@ -6,9 +6,11 @@ using Microsoft.EntityFrameworkCore;
 using Ecommerce.WebApp.Interfaces;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Ecommerce.WebApp.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ecommerce.WebApp.Controllers;
 
+[Authorize]
 public class KategorisController : Controller
 {
     private readonly IKategoriServices _kategoriServices;

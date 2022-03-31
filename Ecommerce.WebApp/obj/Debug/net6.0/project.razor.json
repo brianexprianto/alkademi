@@ -16298,8 +16298,23 @@
   "RootNamespace": "Ecommerce.WebApp",
   "Documents": [
     {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Produk\\Edit.cshtml",
+      "TargetPath": "Views\\Produk\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Produk\\Index.cshtml",
+      "TargetPath": "Views\\Produk\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Account\\Login.cshtml",
+      "TargetPath": "Views\\Account\\Login.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16315,6 +16330,21 @@
     {
       "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Kategoris\\Index.cshtml",
+      "TargetPath": "Views\\Kategoris\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Kategoris\\Create.cshtml",
+      "TargetPath": "Views\\Kategoris\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Produk\\Create.cshtml",
+      "TargetPath": "Views\\Produk\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16338,6 +16368,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Account\\Create.cshtml",
+      "TargetPath": "Views\\Account\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Kategori\\Edit.cshtml",
       "TargetPath": "Views\\Kategori\\Edit.cshtml",
       "FileKind": "mvc"
@@ -16345,6 +16380,36 @@
     {
       "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Kategori\\Details.cshtml",
       "TargetPath": "Views\\Kategori\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Admin\\IndexAdmin.cshtml",
+      "TargetPath": "Views\\Admin\\IndexAdmin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Home\\Denied.cshtml",
+      "TargetPath": "Views\\Home\\Denied.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Kategoris\\Delete.cshtml",
+      "TargetPath": "Views\\Kategoris\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Admin\\Create.cshtml",
+      "TargetPath": "Views\\Admin\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Kategoris\\Details.cshtml",
+      "TargetPath": "Views\\Kategoris\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Kategoris\\Edit.cshtml",
+      "TargetPath": "Views\\Kategoris\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {

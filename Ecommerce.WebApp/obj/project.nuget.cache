@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0s2rKF4WhNpXbOySCcQc+nsO+DSl9+KTdntBsWuUM/6lnIiqfsss3J1RlbXbNjjnwNQTr8FfaSQZ6z5I6t3mWA==",
+  "dgSpecHash": "E4XtImTmqdmbApg8718uEhdK/i9IYbsJZWbsfvu85vSGMBAXG1O7uRwyWP9uGxR0JfkoSmnuJigTI5jrP+Vrpg==",
   "success": true,
   "projectFilePath": "D:\\alkademi\\projek\\Ecommerce.WebApp\\Ecommerce.WebApp.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.3\\microsoft.entityframeworkcore.analyzers.6.0.3.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.3\\microsoft.entityframeworkcore.design.6.0.3.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.3\\microsoft.entityframeworkcore.relational.6.0.3.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.3\\microsoft.entityframeworkcore.tools.6.0.3.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.1\\microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

@@ -5,44 +5,52 @@
     ViewData["Title"] = "Edit";
 }
 
-<h4>Edit Data Kategori</h4>
 <div class="container-xxl flex-grow-1 container-p-y">
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit" method="post">
-            @Html.AntiForgeryToken()
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="IdProduk" class="control-label"></label>
-                <input asp-for="IdProduk" class="form-control" />
-                <span asp-validation-for="IdProduk" class="text-danger"></span>
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Edit Product</h5>
+                <small class="text-muted float-end"></small>
             </div>
-            <div class="form-group">
-                <label asp-for="NamaProduk" class="control-label"></label>
-                <input asp-for="NamaProduk" class="form-control" />
-                <span asp-validation-for="NamaProduk" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Deskripsi" class="control-label"></label>
-                <input asp-for="Deskripsi" class="form-control" />
-                <span asp-validation-for="Deskripsi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="GambarSrc" class="control-label"></label>
-                <input asp-for="GambarSrc" class="form-control" />
-                <span asp-validation-for="GambarSrc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Edit" class="btn btn-primary" />
-            </div>
-            </form>
-    </div>        
+            <div class="card-body">
+                <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="IdProduk" type="hidden" />
+                    <div class="form-group mb-3">
+                        <label asp-for="NamaProduk" class="control-label"></label>
+                        <input asp-for="NamaProduk" class="form-control" />
+                        <span asp-validation-for="NamaProduk" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Deskripsi" class="control-label"></label>
+                        <input asp-for="Deskripsi" class="form-control" />
+                        <span asp-validation-for="Deskripsi" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Harga" class="control-label"></label>
+                        <input asp-for="Harga" class="form-control" />
+                        <span asp-validation-for="Harga" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="GambarFile" class="control-label"></label>
+                        <input asp-for="GambarFile" type="file" class="form-control" />
+                        <span asp-validation-for="GambarFile" class="text-danger"></span>
+                        <img src="~/@Model.GambarSrc" height="100" />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="IdKategori" class="control-label"></label>
+                        <select asp-for="IdKategori" multiple class="form-select" asp-items="@ViewBag.KategoriDataSource">
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+                        </select>
+                        <span asp-validation-for="IdKategori" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="submit" value="Edit" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+</div>
+</div> 

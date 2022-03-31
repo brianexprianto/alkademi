@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7k2bFBq4sBZgvbrln96hsZ6tQxv0WK4WalAj1IYvkFs=",
+  "Hash": "h/nENSkmlw4oPEfanvlwTBLVfBq0zoPvSP6w14+BmnI=",
   "Source": "Ecommerce.WebApp",
   "BasePath": "_content/Ecommerce.WebApp",
   "Mode": "Default",
@@ -2635,6 +2635,23 @@
       "OriginalItemSpec": "wwwroot\\icons\\boutique.png"
     },
     {
+      "Identity": "D:\\alkademi\\projek\\Ecommerce.WebApp\\wwwroot\\images\\2bfea25c-f550-4085-a48a-9feb7ffea46a-pro.png",
+      "SourceId": "Ecommerce.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\alkademi\\projek\\Ecommerce.WebApp\\wwwroot\\",
+      "BasePath": "_content/Ecommerce.WebApp",
+      "RelativePath": "images/2bfea25c-f550-4085-a48a-9feb7ffea46a-pro.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\2bfea25c-f550-4085-a48a-9feb7ffea46a-pro.png"
+    },
+    {
       "Identity": "D:\\alkademi\\projek\\Ecommerce.WebApp\\wwwroot\\images\\5c50a536-02e1-45e5-925f-7c5fc1a88c1b-kuda.jpg",
       "SourceId": "Ecommerce.WebApp",
       "SourceType": "Discovered",
@@ -2650,6 +2667,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\5c50a536-02e1-45e5-925f-7c5fc1a88c1b-kuda.jpg"
+    },
+    {
+      "Identity": "D:\\alkademi\\projek\\Ecommerce.WebApp\\wwwroot\\images\\9e92cc9e-cb0b-4679-b06c-f9d1f28cc8a2-dslr.png",
+      "SourceId": "Ecommerce.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\alkademi\\projek\\Ecommerce.WebApp\\wwwroot\\",
+      "BasePath": "_content/Ecommerce.WebApp",
+      "RelativePath": "images/9e92cc9e-cb0b-4679-b06c-f9d1f28cc8a2-dslr.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\9e92cc9e-cb0b-4679-b06c-f9d1f28cc8a2-dslr.png"
     },
     {
       "Identity": "D:\\alkademi\\projek\\Ecommerce.WebApp\\wwwroot\\images\\d44b1495-187d-4f48-a3b4-96e950db06e6-action.png",

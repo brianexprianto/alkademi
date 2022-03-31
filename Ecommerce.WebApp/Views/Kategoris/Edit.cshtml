@@ -1,3 +1,4 @@
+@using Microsoft.AspNetCore.Mvc.Rendering;
 @model Ecommerce.WebApp.Datas.Entities.KategoriProduk
 
 @{
@@ -11,11 +12,8 @@
         <form asp-action="Edit" method="post">
             @Html.AntiForgeryToken()
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="IdKategori" class="control-label"></label>
-                <input asp-for="IdKategori" class="form-control" />
-                <span asp-validation-for="IdKategori" class="text-danger"></span>
-            </div>
+            <input asp-for="IdKategori" type="hidden" class="form-control" />
+            
             <div class="form-group">
                 <label asp-for="NamaKategori" class="control-label"></label>
                 <input asp-for="NamaKategori" class="form-control" />
@@ -30,6 +28,8 @@
                 <label asp-for="Icon" class="control-label"></label>
                 <input asp-for="Icon" class="form-control" />
                 <span asp-validation-for="Icon" class="text-danger"></span>
+                <img src="~/@Model.Icon" height="100" />
+                
             </div>
             <div class="form-group">
                 <input type="submit" value="Edit" class="btn btn-primary" />
