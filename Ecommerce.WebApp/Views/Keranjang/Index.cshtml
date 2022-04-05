@@ -1,0 +1,85 @@
+@using System.Globalization
+@model List<Ecommerce.WebApp.ViewModels.KeranjangViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+    int i = 0;
+}
+           
+            <div class="Shopping-cart-area pt-60 pb-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            
+                                <div class="table-content table-responsive">
+                                    <form asp-controller="Order" asp-action="Checkout"></form>
+                                    <table class="table">
+                                        
+                                        <thead>
+                                            <tr>
+                                                <th class="li-product-remove">No</th>
+                                                <th class="li-product-thumbnail">images</th>
+                                                <th class="cart-product-name">Produk</th>
+                                                
+                                                <th class="li-product-quantity">Jumlah</th>
+                                                <th class="li-product-subtotal">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            @foreach (var item in Model)
+                                            {
+                                                i++;
+                                            <tr>
+                                                <td class="li-product-remove">@i</td>
+                                                <td class="li-product-thumbnail"><a href="#"><img src="~/@item.Image" alt="Li's Product Image" width="75" height="75"></a></td>
+                                                <td class="li-product-name"><a href="#">@item.NamaProduk</a></td>
+                                                
+                                                <td class="quantity">
+                                                    
+                                                    
+                                                        <input type="hidden" name="IdProduk" value="@item.IdProduk" />
+                                                        <input type="number" name="Qty" value="@item.JlhBarang" />
+                                                    
+                                                    
+                                                </td>
+                                                <td class="product-subtotal"><span class="amount">@item.Subtotal.ToString("C", new CultureInfo("id-ID"))</span></td>
+                                            </tr>
+                                            }
+                                            
+                                        </tbody>
+                                        
+                                    </table>
+                                     <label>Pilih Alamat Pengiriman</label>
+                                    <select name="Alamat" asp-items="@ViewBag.AlamatList"></select>
+                                        <br />
+                                        <button type="submit" name="Action" value="Checkout">Checkout</button>                
+                                        <button type="submit" name="Action" value="Simpan">Simpan</button>
+                                    </from>
+                                </div>
+                                
+                                @* <div class="row">
+                                    <div class="col-12">
+                                        <div class="coupon-all">
+                                            
+                                            <div class="coupon2">
+                                                <form asp-controller="Order" asp-action="Checkout">
+                                                <input class="button" value="Lanjutkan Pembayaran" type="submit">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> *@
+                               
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    @section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function(){
+            
+        });
+    </script>
+} 

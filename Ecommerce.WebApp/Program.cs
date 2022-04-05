@@ -24,6 +24,9 @@ builder.Services.AddScoped<IKategoriProdukServices, KategoriProdukServices>();
 builder.Services.AddScoped<IProdukServices, ProdukServices>();
 builder.Services.AddScoped<IAccountServices, AccountServices>();
 builder.Services.AddScoped<IAdminServices, AdminServices>();
+builder.Services.AddScoped<IKeranjangServices, KeranjangServices>();
+builder.Services.AddScoped<IAlamatServices, AlamatServices>();
+builder.Services.AddScoped<IOrderServices, OrderServices>();
 
 
 // Add services to the container.
@@ -32,10 +35,10 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     .AddCookie(
         options =>
             {
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(15);
                 options.SlidingExpiration = true;
                 options.AccessDeniedPath = "/Home/Denied";
-                options.LoginPath = "/Account/Login";
+                options.LoginPath = "/AccountCustomer/Login";
             }
     );
 

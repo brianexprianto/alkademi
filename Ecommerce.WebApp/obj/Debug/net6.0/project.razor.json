@@ -16298,6 +16298,11 @@
   "RootNamespace": "Ecommerce.WebApp",
   "Documents": [
     {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\ProdukKatalog\\Index.cshtml",
+      "TargetPath": "Views\\ProdukKatalog\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Produk\\Edit.cshtml",
       "TargetPath": "Views\\Produk\\Edit.cshtml",
       "FileKind": "mvc"
@@ -16310,6 +16315,11 @@
     {
       "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Produk\\Index.cshtml",
       "TargetPath": "Views\\Produk\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\AccountCustomer\\Register.cshtml",
+      "TargetPath": "Views\\AccountCustomer\\Register.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16378,6 +16388,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Keranjang\\Index.cshtml",
+      "TargetPath": "Views\\Keranjang\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Home\\Produk.cshtml",
+      "TargetPath": "Views\\Home\\Produk.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Kategori\\Details.cshtml",
       "TargetPath": "Views\\Kategori\\Details.cshtml",
       "FileKind": "mvc"
@@ -16418,8 +16438,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\ProdukKatalog\\Produk.cshtml",
+      "TargetPath": "Views\\ProdukKatalog\\Produk.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\AccountCustomer\\Login.cshtml",
+      "TargetPath": "Views\\AccountCustomer\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\alkademi\\projek\\Ecommerce.WebApp\\Views\\AccountCustomer\\Registered.cshtml",
+      "TargetPath": "Views\\AccountCustomer\\Registered.cshtml",
       "FileKind": "mvc"
     }
   ],

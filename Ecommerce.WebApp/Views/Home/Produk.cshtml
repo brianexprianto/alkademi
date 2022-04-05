@@ -1,0 +1,78 @@
+@using System.Globalization
+@model Ecommerce.WebApp.ViewModels.ProdukDetailViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="content-wraper">
+    <div class="container">
+        <div class="row single-product-area">
+            <div class="col-lg-5 col-md-6">
+                <!-- Product Details Left -->
+                <div class="product-details-left">
+                    <div class="product-details-images slider-navigation-1">
+                        <div class="lg-image">
+                            <img src="~/@Model.Gambar" alt="product image">
+                        </div>
+                        
+                    </div>
+                    <div class="product-details-thumbs slider-thumbs-1">
+                        <div class="sm-image"><img src="~/@Model.Gambar" alt="product image thumb">
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--// Product Details Left -->
+            </div>
+
+            <div class="col-lg-7 col-md-6">
+                <div class="product-details-view-content sp-normal-content pt-60">
+                    <div class="product-info">
+                        <h2>@Model.NamaProduk</h2>
+                        <span class="product-details-ref">Reference: demo_15</span>
+                        <div class="rating-box pt-20">
+                            <ul class="rating rating-with-review-item">
+                                <li><i class="fa fa-star-o"></i></li>
+                                <li><i class="fa fa-star-o"></i></li>
+                                <li><i class="fa fa-star-o"></i></li>
+                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                <li class="review-item"><a href="#">Read Review</a></li>
+                                <li class="review-item"><a href="#">Write Review</a></li>
+                            </ul>
+                        </div>
+                        <div class="price-box pt-20">
+                            <span class="new-price new-price-2"> @Model.Harga.ToString("C", new CultureInfo("id-ID"))</span>
+                        </div>
+                        <div class="product-desc">
+                            <p>
+                                <span>@Model.Deskripsi
+                                </span>
+                            </p>
+                        </div>
+                        <div class="single-add-to-cart">
+                            <form asp-action="Add" asp-controller="Keranjang" method="post" class="cart-quantity">
+                                @Html.AntiForgeryToken()
+                                
+                                <input type="hidden" name="idProduk" value="@Model.IdProduk" />
+                                <button class="add-to-cart" type="submit" value="Add to Cart">Add to Cart</button>
+                            </form>
+                            
+                        </div>
+                        <div class="product-additional-info">
+                            <div class="product-social-sharing">
+                                <ul>
+                                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
+                                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
+                                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i>Google +</a>
+                                    </li>
+                                    <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

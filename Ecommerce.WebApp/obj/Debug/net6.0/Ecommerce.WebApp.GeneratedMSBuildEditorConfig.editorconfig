@@ -15,6 +15,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\alkademi\projek\Ecommerce.WebApp
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/alkademi/projek/Ecommerce.WebApp/Views/AccountCustomer/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudEN1c3RvbWVyXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/alkademi/projek/Ecommerce.WebApp/Views/AccountCustomer/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudEN1c3RvbWVyXFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/alkademi/projek/Ecommerce.WebApp/Views/AccountCustomer/Registered.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudEN1c3RvbWVyXFJlZ2lzdGVyZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/alkademi/projek/Ecommerce.WebApp/Views/Account/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -31,6 +43,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXhBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Alamat/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxhbWF0XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Alamat/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxhbWF0XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Alamat/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxhbWF0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/alkademi/projek/Ecommerce.WebApp/Views/Home/Denied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -41,6 +65,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/alkademi/projek/Ecommerce.WebApp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Home/Produk.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWsuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/alkademi/projek/Ecommerce.WebApp/Views/Kategoris/Create.cshtml]
@@ -81,6 +109,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/alkademi/projek/Ecommerce.WebApp/Views/Kategori/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Keranjang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2VyYW5qYW5nXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Order/CheckoutBerhasil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ2hlY2tvdXRCZXJoYXNpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/alkademi/projek/Ecommerce.WebApp/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/alkademi/projek/Ecommerce.WebApp/Views/Produk/Create.cshtml]

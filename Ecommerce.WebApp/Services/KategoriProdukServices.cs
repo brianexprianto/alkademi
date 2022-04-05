@@ -21,4 +21,18 @@ public class KategoriProdukServices : BaseDbServices, IKategoriProdukServices
         return result;
 
     }
+
+    public async Task Remove(int idProduk, int idKategori)
+    {
+        var item = await DbContext.ProdukKategoris.FirstOrDefaultAsync(x => x.IdProduk == idProduk && x.IdKategori == idKategori);
+        
+        if(item == null)
+        {
+            return;
+        }
+        
+        DbContext.ProdukKategoris.Remove(item);
+
+        await DbContext.SaveChangesAsync();
+    }
 }

@@ -7,22 +7,22 @@ namespace Ecommerce.WebApp.Datas.Entities
     {
         public Orderr()
         {
+            DetailOrders = new HashSet<DetailOrder>();
             Pembayarans = new HashSet<Pembayaran>();
             Pengirimen = new HashSet<Pengiriman>();
         }
 
         public int IdOrder { get; set; }
-        public int IdKeranjang { get; set; }
-        public int TglTransaksi { get; set; }
+        public DateOnly TglTransaksi { get; set; }
         public decimal JlhBayar { get; set; }
         public int IdAlamat { get; set; }
         public int IdCustomer { get; set; }
-        public string Status { get; set; } = null!;
+        public int IdStatus { get; set; }
         public string Notes { get; set; } = null!;
 
         public virtual Alamat IdAlamatNavigation { get; set; } = null!;
         public virtual Customer IdCustomerNavigation { get; set; } = null!;
-        public virtual Keranjang IdKeranjangNavigation { get; set; } = null!;
+        public virtual ICollection<DetailOrder> DetailOrders { get; set; }
         public virtual ICollection<Pembayaran> Pembayarans { get; set; }
         public virtual ICollection<Pengiriman> Pengirimen { get; set; }
     }

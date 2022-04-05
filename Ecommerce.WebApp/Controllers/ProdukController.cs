@@ -215,18 +215,45 @@ public class ProdukController : Controller
             product.Gambar = $"images/{fileName}";
 
             //Insert to ProdukKategori table
+            var productKategories = await _kategoriProdukServices.GetKategoriIds(request.IdProduk);
+
             for (int i = 0; i < request.IdKategori.Length; i++)
-            { 
-                product.ProdukKategoris.Add(new Datas.Entities.ProdukKategori 
+            {
+                if (productKategories != null && productKategories.Any())
                 {
-                    IdKategori = request.IdKategori[i],
-                    IdProduk = product.IdProduk
-                });   
+                    if (!productKategories.Any(x => x == request.IdKategori[i]))
+                    {
+                        product.ProdukKategoris.Add(new Datas.Entities.ProdukKategori
+                        {
+                            IdKategori = request.IdKategori[i],
+                            IdProduk = product.IdProduk
+                        });
+                    }
+                }
+                else
+                {
+                    product.ProdukKategoris.Add(new Datas.Entities.ProdukKategori
+                    {
+                        IdKategori = request.IdKategori[i],
+                        IdProduk = product.IdProduk
+                    });
+                }
             }
 
-            await _produkServices.Add(product);
+            if (productKategories != null && (product.ProdukKategoris != null && product.ProdukKategoris.Any()))
+            {
+                foreach (var item in productKategories)
+                {
+                    if (!product.ProdukKategoris.Any(x => x.IdProduk == item))
+                    {
+                        await _kategoriProdukServices.Remove(request.IdProduk, item);
+                    }
+                }
+            }
 
-            return Redirect(nameof(Index));
+            await _produkServices.Update(product);
+
+            return RedirectToAction(nameof(Index));
         }catch(InvalidOperationException ex){
             ViewBag.ErrorMessage = ex.Message;
         }
@@ -235,7 +262,7 @@ public class ProdukController : Controller
         }
 
 
-        await SetKategoriDataSource();
+        await SetKategoriDataSource(request.IdKategori);
         return View(request);
     }
 

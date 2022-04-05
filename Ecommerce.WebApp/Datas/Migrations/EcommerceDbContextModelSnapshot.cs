@@ -161,6 +161,42 @@ namespace Ecommerce.WebApp.Datas.Migrations
                     b.ToTable("customer", (string)null);
                 });
 
+            modelBuilder.Entity("Ecommerce.WebApp.Datas.Entities.DetailOrder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    b.Property<decimal>("Harga")
+                        .HasPrecision(10)
+                        .HasColumnType("decimal(10)")
+                        .HasColumnName("harga");
+
+                    b.Property<int>("IdOrder")
+                        .HasColumnType("int(11)")
+                        .HasColumnName("id_order");
+
+                    b.Property<int>("IdProduk")
+                        .HasColumnType("int")
+                        .HasColumnName("id_produk");
+
+                    b.Property<int>("JlhBarang")
+                        .HasColumnType("int")
+                        .HasColumnName("jlh_barang");
+
+                    b.Property<decimal>("SubTotal")
+                        .HasPrecision(10)
+                        .HasColumnType("decimal(10)")
+                        .HasColumnName("subtotal");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex(new[] { "IdOrder" }, "detail_order_FK_1");
+
+                    b.ToTable("detail_order", (string)null);
+                });
+
             modelBuilder.Entity("Ecommerce.WebApp.Datas.Entities.KategoriProduk", b =>
                 {
                     b.Property<int>("IdKategori")
@@ -203,6 +239,12 @@ namespace Ecommerce.WebApp.Datas.Migrations
                         .HasColumnType("int(11)")
                         .HasColumnName("id_customer");
 
+                    b.Property<int>("IdProduk")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdProdukNavigationIdProduk")
+                        .HasColumnType("int(11)");
+
                     b.Property<int>("JlhBarang")
                         .HasColumnType("int(11)")
                         .HasColumnName("jlh_barang");
@@ -214,6 +256,8 @@ namespace Ecommerce.WebApp.Datas.Migrations
 
                     b.HasKey("IdKeranjang")
                         .HasName("PRIMARY");
+
+                    b.HasIndex("IdProdukNavigationIdProduk");
 
                     b.HasIndex(new[] { "IdCustomer" }, "fk_id_customer");
 
@@ -235,9 +279,9 @@ namespace Ecommerce.WebApp.Datas.Migrations
                         .HasColumnType("int(11)")
                         .HasColumnName("id_customer");
 
-                    b.Property<int>("IdKeranjang")
+                    b.Property<int>("IdStatus")
                         .HasColumnType("int(11)")
-                        .HasColumnName("id_keranjang");
+                        .HasColumnName("id_status");
 
                     b.Property<decimal>("JlhBayar")
                         .HasPrecision(10, 2)
@@ -250,14 +294,8 @@ namespace Ecommerce.WebApp.Datas.Migrations
                         .HasColumnType("varchar(255)")
                         .HasColumnName("notes");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
-                        .HasColumnName("status");
-
-                    b.Property<int>("TglTransaksi")
-                        .HasColumnType("int(11)")
+                    b.Property<DateTime>("TglTransaksi")
+                        .HasColumnType("Date")
                         .HasColumnName("tgl_transaksi");
 
                     b.HasKey("IdOrder")
@@ -266,8 +304,6 @@ namespace Ecommerce.WebApp.Datas.Migrations
                     b.HasIndex(new[] { "IdAlamat" }, "fk_id_alamat");
 
                     b.HasIndex(new[] { "IdCustomer" }, "fk_id_customerr");
-
-                    b.HasIndex(new[] { "IdKeranjang" }, "fk_id_kerangjang");
 
                     b.ToTable("orderr", (string)null);
                 });
@@ -467,6 +503,17 @@ namespace Ecommerce.WebApp.Datas.Migrations
                     b.Navigation("IdCustomerNavigation");
                 });
 
+            modelBuilder.Entity("Ecommerce.WebApp.Datas.Entities.DetailOrder", b =>
+                {
+                    b.HasOne("Ecommerce.WebApp.Datas.Entities.Orderr", "Orderr")
+                        .WithMany("DetailOrders")
+                        .HasForeignKey("IdOrder")
+                        .IsRequired()
+                        .HasConstraintName("detail_order_FK_1");
+
+                    b.Navigation("Orderr");
+                });
+
             modelBuilder.Entity("Ecommerce.WebApp.Datas.Entities.Keranjang", b =>
                 {
                     b.HasOne("Ecommerce.WebApp.Datas.Entities.Customer", "IdCustomerNavigation")
@@ -475,7 +522,15 @@ namespace Ecommerce.WebApp.Datas.Migrations
                         .IsRequired()
                         .HasConstraintName("fk_id_customer");
 
+                    b.HasOne("Ecommerce.WebApp.Datas.Entities.Produk", "IdProdukNavigation")
+                        .WithMany()
+                        .HasForeignKey("IdProdukNavigationIdProduk")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("IdCustomerNavigation");
+
+                    b.Navigation("IdProdukNavigation");
                 });
 
             modelBuilder.Entity("Ecommerce.WebApp.Datas.Entities.Orderr", b =>
@@ -492,17 +547,9 @@ namespace Ecommerce.WebApp.Datas.Migrations
                         .IsRequired()
                         .HasConstraintName("fk_id_customerr");
 
-                    b.HasOne("Ecommerce.WebApp.Datas.Entities.Keranjang", "IdKeranjangNavigation")
-                        .WithMany("Orderrs")
-                        .HasForeignKey("IdKeranjang")
-                        .IsRequired()
-                        .HasConstraintName("fk_id_kerangjang");
-
                     b.Navigation("IdAlamatNavigation");
 
                     b.Navigation("IdCustomerNavigation");
-
-                    b.Navigation("IdKeranjangNavigation");
                 });
 
             modelBuilder.Entity("Ecommerce.WebApp.Datas.Entities.Pembayaran", b =>
@@ -587,13 +634,10 @@ namespace Ecommerce.WebApp.Datas.Migrations
                     b.Navigation("ProdukKategoris");
                 });
 
-            modelBuilder.Entity("Ecommerce.WebApp.Datas.Entities.Keranjang", b =>
-                {
-                    b.Navigation("Orderrs");
-                });
-
             modelBuilder.Entity("Ecommerce.WebApp.Datas.Entities.Orderr", b =>
                 {
+                    b.Navigation("DetailOrders");
+
                     b.Navigation("Pembayarans");
 
                     b.Navigation("Pengirimen");

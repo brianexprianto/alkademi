@@ -11,6 +11,17 @@ public class ProdukServices : BaseDbServices, IProdukServices
     {
     }
 
+    public async Task<Produk> Add(Produk obj)
+    {
+        if(await DbContext.Produks.AnyAsync(x=>x.IdProduk == obj.IdProduk)){
+            throw new InvalidOperationException($"Produk with ID {obj.IdProduk} is already exist");
+        }
+
+        await DbContext.AddAsync(obj);
+        await DbContext.SaveChangesAsync();
+        
+        return obj;
+    }
     public async Task<Produk> Add(Produk obj, int idKategori)
     {
         if(await DbContext.Produks.AnyAsync(x=>x.IdProduk == obj.IdProduk)){
@@ -28,17 +39,7 @@ public class ProdukServices : BaseDbServices, IProdukServices
         return obj;
     }
 
-    public async Task<Produk> Add(Produk obj)
-    {
-        if(await DbContext.Produks.AnyAsync(x=>x.IdProduk == obj.IdProduk)){
-            throw new InvalidOperationException($"Produk with ID {obj.IdProduk} is already exist");
-        }
-
-        await DbContext.AddAsync(obj);
-        await DbContext.SaveChangesAsync();
-        
-        return obj;
-    }
+    
 
     public async Task<bool> Delete(int id)
     {
